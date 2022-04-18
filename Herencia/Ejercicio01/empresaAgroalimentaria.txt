@@ -1,0 +1,12 @@
+class Productos {}
+	class Frescos extends Productos {}
+	class Refrigerados extends Productos {}
+	class Congelados extends Productos {}
+		CongAire
+		CongAgua
+		CongNitrogeno
+
+
+Envios
+	cantidad
+	productos
