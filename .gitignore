@@ -25,3 +25,6 @@ hs_err_pid*
 ##Añadidos por mi
 .idea
 out/
+*.pdf
+*.txt
+*.iml
