@@ -2,7 +2,7 @@ package edu.fpdual.jdbc.ejemplojdbc.conector;
 
 public class MySQLConstants {
 
-  //Constantes para la configuración luego solo cambia en el fichero y aquí.
+  //Constantes para la configuración luego solo cambiar en config.properties y aquí.
   public static final String PASSWD = "jdbc.mysql.passwd";
   public static final String USER = "jdbc.mysql.user";
   public static final String DRIVER = "jdbc.mysql.driver";
