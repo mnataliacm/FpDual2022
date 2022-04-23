@@ -25,3 +25,5 @@ hs_err_pid*
 ##Añadidos por mi
 .idea
 out/
+target/
+
