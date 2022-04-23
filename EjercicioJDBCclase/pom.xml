@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>edu.fpdual.jdbc</groupId>
-    <artifactId>EjercicioJDBC</artifactId>
+    <artifactId>EjercicioJDBCclase</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>Ejemplo JDBC</name>
-    <description>Ejemplo didactico para conexión por JDBC a MySQL</description>
+    <name>Ejemplo JDBC Clase</name>
+    <description>Ejemplo didáctico para conexión por JDBC a MySQL</description>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
