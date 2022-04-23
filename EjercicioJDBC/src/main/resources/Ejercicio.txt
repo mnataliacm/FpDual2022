@@ -1,0 +1,33 @@
+Da error, compruebo config.properties y cambio passwd. Ya compila y aparece lista ciudades
+----------
+***DAO***
+
+City.java
+- el nombre de la columna Name tiene la N en minúscula
+- falta la columna country
+
+CityLanguageData.java
+- no existe en la BD
+
+Country.java
+- OK
+
+CountryLanguage.java
+- creo que faltan cosas
+
+----------
+***MANAGER***
+
+CityManager.java
+-
+
+CityManagerImpl.java
+-
+
+CountryManager.java
+-
+
+CountryManagerImpl.java
+-
+
+ citySet.add(city);
