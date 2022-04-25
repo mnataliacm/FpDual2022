@@ -1,7 +1,7 @@
-package edu.fpdual.jdbc.ejemplojdbc.conector;
+package edu.fpdual.jdbc.ejemplojdbc.connector;
 
 import edu.fpdual.jdbc.ejemplojdbc.dao.City;
-import edu.fpdual.jdbc.ejemplojdbc.manager.impl.CityManagerImpl;
+import edu.fpdual.jdbc.ejemplojdbc.manager.CityManagerImpl;
 
 import lombok.Getter;
 import lombok.Setter;

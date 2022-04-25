@@ -1,4 +1,4 @@
-package edu.fpdual.jdbc.ejemplojdbc.conector;
+package edu.fpdual.jdbc.ejemplojdbc.connector;
 
 public class MySQLConstants {
 

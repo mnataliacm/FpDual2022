@@ -1,6 +1,7 @@
 package edu.fpdual.jdbc.ejemplojdbc.dao;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import java.sql.SQLException;
 @AllArgsConstructor
 @EqualsAndHashCode
 @ToString
+@Builder
 public class City {
 
   private int id;
