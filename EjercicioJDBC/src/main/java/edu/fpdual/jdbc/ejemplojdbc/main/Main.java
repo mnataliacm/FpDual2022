@@ -17,11 +17,12 @@ public class Main {
     String letra;
     Boolean salir = false;
     // Connects to the DB
+    //3) Tabla CountryLanguage
     try (Connection con = new MySQLConnector().getMySQLConnection()){
 
       do {
         System.out.println("\n___MENU PRINCIPAL___");
-        System.out.println("1) Tabla City \n2) Tabla Country \n3) Tabla CountryLanguage \n4) Salir");
+        System.out.println("1) Tabla City \n2) Tabla Country  \n4) Salir");
         System.out.print("Elige tabla para trabajar: ");
         switch (s.nextInt()) {
           case 1:
@@ -79,15 +80,15 @@ public class Main {
             System.out.println("___Menu Tabla Country___");
             System.out.println("1) Todos las paises \n2) Buscar pais por id \n3) Que el nombre contenga ciertas letras " +
                 "\n4) Que empiece por \n5) Que termine por \n6) Añadir país \n7) Modificar país \n8) Borrar país \n9) Salir");
-            System.out.print("Elige opción de la lista: ");
+            System.out.print("Elige opcion de la lista: ");
             switch (s.nextInt()) {
               case 1:
                 System.out.println(new CountryManagerImpl().findAll(con));
                 break;
               case 2:
                 System.out.print("Introduce id a buscar: ");
-                String code = s.nextLine();
-                System.out.println(new CountryManagerImpl().findByCode(con, code));
+                String id = s.next();
+                System.out.println(new CountryManagerImpl().findByCode(con, id));
                 break;
               case 3:
                 letra = "%spa%";
@@ -102,7 +103,7 @@ public class Main {
                 System.out.println(new CountryManagerImpl().findLetterInName(con, letra));
                 break;
               case 6:
-                code = "NCM";
+                String code = "NCM";
                 String name = "Querty";
                 String continente = "Antártida";
                 String region = "Polo Sur";

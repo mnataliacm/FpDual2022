@@ -123,20 +123,20 @@ public class CountryManagerImpl implements CountryManager {
     }
   }
 
-  public Country findByCode(Connection con, String code) {
+  public Country findByCode(Connection con, String id) {
     //prepare SQL statement
     String sql = "select * "
         + "from Country"
-        + " where code = ?;";
+        + " where code like ?;";
 
     // Create general statement
     try (PreparedStatement stmt = con.prepareStatement(sql)) {
       //Add Parameters
-      stmt.setString(1, code);
+      stmt.setString(1, id);
       // Queries the DB
       ResultSet result = stmt.executeQuery();
       // Set before first registry before going through it.
-      result.beforeFirst();
+      //result.beforeFirst();
 
       // Initialize variable
       Country country = null;

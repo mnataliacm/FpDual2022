@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
  * Contains all the queries used to consult and manipulate Cities data.
  *
  * @author jose.m.prieto.villar
+ * @author maria.castillo.munoz
  *
  */
 public class CityManagerImpl implements CityManager {
@@ -178,7 +179,6 @@ public class CityManagerImpl implements CityManager {
     }
   }
 
-  //Por que pide esto? o convertir en abstract??
   @Override
   public void editCiudad(Connection con, int id, String Name) {
 
@@ -188,6 +188,7 @@ public class CityManagerImpl implements CityManager {
   public void delCiudad(Connection con, int id) {
 
   }
+
 
   public void editCiudad(Connection con, Integer id, String Name) {
     //prepare SQL statement
@@ -222,4 +223,15 @@ public class CityManagerImpl implements CityManager {
       e.printStackTrace();
     }
   }
+
+  //Por que pide esto? o convertir en abstract??
+  /*@Override
+  public void editCiudad(Connection con, int id, String Name) {
+
+  }
+
+  @Override
+  public void delCiudad(Connection con, int id) {
+
+  }*/
 }
