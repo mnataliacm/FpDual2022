@@ -1,18 +1,19 @@
 # FpDual2022
 
-Creo varias ramas para control de ejercicios
+### Creo varias ramas para control de ejercicios
 
-### java
+### * java
 
-### maven
+### * maven
 #### lombock
 
-### jdbc
+### * jdbc
 
-### junit
+### * junit
 #### hamcrest
 #### mockito
 
+### En la rama main creo ejercicio usando todo
 
 
 
