@@ -42,14 +42,4 @@ public interface CityManager {
      */
     Set<City> findLetterInName(Connection con, String letras);
 
-    /**
-     * Añadir una ciudad nueva
-     *
-     * @param con DB connection
-     * @param nuevaCiudad String que debe tener el nombre
-     * @return a {@link List} of {@link City}
-     */
-    void addCiudad(Connection con, int id, String Name, String CountryCode, String District, int Population);
-
-
 }

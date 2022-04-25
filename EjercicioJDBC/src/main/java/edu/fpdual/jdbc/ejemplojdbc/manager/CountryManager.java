@@ -1,5 +1,6 @@
 package edu.fpdual.jdbc.ejemplojdbc.manager;
 
+import edu.fpdual.jdbc.ejemplojdbc.dao.City;
 import edu.fpdual.jdbc.ejemplojdbc.dao.Country;
 
 import java.math.BigDecimal;
@@ -9,12 +10,12 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * City DTO Manager.
+ * Country DTO Manager.
  *
  * Contains all the queries used to consult and manipulate Countries data.
  *
  * @author jose.m.prieto.villar
- *
+ * @author natalia castillo muñoz
  */
 public interface CountryManager {
 
@@ -39,4 +40,29 @@ public interface CountryManager {
     public List<Country> findBySurfaceAreaBetween(Connection con, BigDecimal startSurfaceArea,
                                                   BigDecimal endSurfaceArea) throws SQLException;
 
+    /**
+     * Finds all the countries in the DB
+     *
+     * @param con DB connection
+     * @return a {@link List} of {@link City}
+     */
+    List<Country> findAll(Connection con);
+
+    /**
+     * Find an specific countries from the DB
+     *
+     * @param con DB connection
+     * @param id the city id
+     * @return a {@link List} of {@link City}
+     */
+    Country findByCode(Connection con, String code); //¿no devuelve una lista se debe cambiar el return?
+
+    /**
+     * Busca paises que contengan ciertas letras
+     *
+     * @param con DB connection
+     * @param letras String que debe tener el nombre
+     * @return a {@link List} of {@link City}
+     */
+    Set<Country> findLetterInName(Connection con, String letras);
 }

@@ -3,6 +3,7 @@ package edu.fpdual.jdbc.ejemplojdbc.manager.impl;
 import edu.fpdual.jdbc.ejemplojdbc.dao.City;
 import edu.fpdual.jdbc.ejemplojdbc.dao.Country;
 import edu.fpdual.jdbc.ejemplojdbc.manager.CityManager;
+import lombok.ToString;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -158,27 +159,4 @@ public class CityManagerImpl implements CityManager {
             return null;
         }
     }
-
-    public void addCiudad(Connection con, Integer id, String Name, String CountryCode, String District, Integer Population) {
-        //prepare SQL statement
-        String sql = "insert into city values (?, ?, ?, ?, ?);";
-
-        // Create general statement
-        try (PreparedStatement stmt = con.prepareStatement(sql)) {
-            //Add Parameters
-            stmt.setInt(1, id);
-            stmt.setString(2, Name);
-            stmt.setString(3, CountryCode);
-            stmt.setString(4, District);
-            stmt.setInt(5, Population);
-
-            // Queries the DB
-            stmt.executeUpdate();
-            System.out.println("Ciudad insertada correctamente");
-        } catch(SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }

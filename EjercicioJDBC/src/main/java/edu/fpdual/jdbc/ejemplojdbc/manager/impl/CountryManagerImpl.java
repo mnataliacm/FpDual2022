@@ -1,6 +1,7 @@
 package edu.fpdual.jdbc.ejemplojdbc.manager.impl;
 
 import edu.fpdual.jdbc.ejemplojdbc.dao.Country;
+import edu.fpdual.jdbc.ejemplojdbc.dao.Country;
 import edu.fpdual.jdbc.ejemplojdbc.manager.CountryManager;
 
 import java.math.BigDecimal;
@@ -9,9 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
@@ -24,7 +23,7 @@ import java.util.stream.Collectors;
  */
 public class CountryManagerImpl implements CountryManager {
 
-    public List<Country> findAllById(Connection con, Set<String> ids) {
+   /*public List<Country> findAllById(Connection con, Set<String> ids) {
         // Creates the SQL command
         String sql = String.format("SELECT * FROM Country WHERE Code IN (%s)",
                 ids.stream().map(data -> "\"" + data + "\"").collect(Collectors.joining(", ")));
@@ -54,9 +53,9 @@ public class CountryManagerImpl implements CountryManager {
             e.printStackTrace();
             return null;
         }
-    }
+    }*/
 
-    public List<Country> findBySurfaceAreaBetween(Connection con, BigDecimal startSurfaceArea,
+    /*public List<Country> findBySurfaceAreaBetween(Connection con, BigDecimal startSurfaceArea,
                                                   BigDecimal endSurfaceArea) throws SQLException {
 
         try (PreparedStatement prepStmt = con
@@ -64,18 +63,18 @@ public class CountryManagerImpl implements CountryManager {
             prepStmt.setBigDecimal(1, startSurfaceArea);
             prepStmt.setBigDecimal(2, endSurfaceArea);
 
-            return prepareReturn(prepStmt.executeQuery());
+           // return prepareReturn(prepStmt.executeQuery());
         }
 
     }
-
+/*
     /**
      * Prepare the return of a result set
      * @param result the result set to prepate
      * @return a {@link List} of {@link Country}
      * @throws {@link SQLException}
      */
-    private List<Country> prepareReturn(ResultSet result) throws SQLException {
+    /*private List<Country> prepareReturn(ResultSet result) throws SQLException {
 
         List<Country> countries = new ArrayList<>();
 
@@ -84,6 +83,137 @@ public class CountryManagerImpl implements CountryManager {
         }
 
         return countries;
+    }*/
+
+
+    @Override
+    public List<Country> findAllById(Connection con, Set<String> ids) {
+        return null;
     }
 
+    @Override
+    public List<Country> findBySurfaceAreaBetween(Connection con, BigDecimal startSurfaceArea, BigDecimal endSurfaceArea) throws SQLException {
+        return null;
+    }
+
+    //añado
+    public List<Country> findAll(Connection con) {
+        // Create general statement
+        try (Statement stmt = con.createStatement()) {
+            // Queries the DB
+            ResultSet result = stmt.executeQuery("SELECT * FROM Country;");
+            // Set before first registry before going through it.
+            result.beforeFirst();
+
+            // Initializes variables
+            List<Country> countries = new ArrayList<>();
+
+            // Run through each result
+            while (result.next()) {
+                // Initializes a Country per result
+                countries.add(new Country(result));
+                // Groups the countried by Country
+            }
+
+            return countries;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Country findByCode(Connection con, String code) {
+        //prepare SQL statement
+        String sql = "select * "
+            + "from Country"
+            + " where code = ?;";
+
+        // Create general statement
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+            //Add Parameters
+            stmt.setString(1, code);
+            // Queries the DB
+            ResultSet result = stmt.executeQuery();
+            // Set before first registry before going through it.
+            result.beforeFirst();
+
+            // Initialize variable
+            Country country = null;
+
+            // Run through each result
+            while (result.next()) {
+                // Initializes a Country per result
+                country = new Country(result);
+            }
+            return country;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+/*
+    /**
+     * Fills all the countries for each Country.
+     *
+     * @param con       the Db connection
+     * @param countries the map of countries and countries.
+     * @param countries    the list of countries to update.
+     */
+    // TODO: 24/04/2022 al cambiar variables de ciudad lo he roto revisar
+    /*private void fillCountries(Connection con, Map<Integer, String> countries, List<Country> countries) {
+        // Obtains all the country codes to search
+        Set<String> countryCodes = new HashSet<>(countries.values());
+
+        // Looks for all countries and groups them by id.
+        Map<String, Country> countriesMap = new CountryManagerImpl().findAllById(con, countryCodes).stream()
+            .collect(Collectors.toMap(Country::getId, data -> data));
+
+        // Associates the corresponding Country to each Country
+        countries.forEach(Country -> {
+            String countryCode = countries.get(Country.getId());
+            Country foundCountry = countriesMap.get(countryCode);
+            Country.setCountry(foundCountry);
+        });
+    }*/
+
+    /**
+     * Fills all the countries for each Country.
+     *
+     * @param con    the Db connection
+     * @param letras
+     * @return
+     */
+    public Set<Country> findLetterInName(Connection con, String letras) {
+        //prepare SQL statement
+        String sql = "select *"
+            + " from Country"
+            + " where name like ?;";
+
+        // Create general statement
+        try (PreparedStatement stmt = con.prepareStatement(sql)) {
+            //Add Parameters
+            stmt.setString(1, letras);
+            // Queries the DB
+            ResultSet result = stmt.executeQuery();
+            // Set before first registry before going through it.
+            result.beforeFirst();
+
+            // Initialize variables
+            Country Country = null;
+            Set<Country> CountrySet = new HashSet<>();
+            // Run through each result
+            while (result.next()) {
+                // Initializes a Country per result
+                Country = new Country(result);
+                CountrySet.add(Country);
+            }
+            return CountrySet;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
