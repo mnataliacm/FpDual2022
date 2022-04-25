@@ -14,7 +14,7 @@ import java.util.List;
 
 public abstract class CountryLanguageManagerImpl implements CountryLanguageManager {
 
-  public List<CountryLanguage> findAll(Connection con) {
+  /*public List<CountryLanguage> findAll(Connection con) {
     // Create general statement
     try (Statement stmt = con.createStatement()) {
       // Queries the DB
@@ -43,6 +43,6 @@ public abstract class CountryLanguageManagerImpl implements CountryLanguageManag
       e.printStackTrace();
       return null;
     }
-  }
+  }*/
 
 }

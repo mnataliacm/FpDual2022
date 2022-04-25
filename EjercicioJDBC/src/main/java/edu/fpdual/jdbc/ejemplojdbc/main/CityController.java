@@ -15,24 +15,24 @@ import java.util.function.Consumer;
 
 public class CityController {
 
-    private CityManager cityManager;
+  private CityManager cityManager;
 
-    public CityController(CityManagerImpl cityManagerImpl) {
-        this.cityManager = cityManagerImpl;
+  public CityController(CityManagerImpl cityManagerImpl) {
+    this.cityManager = cityManagerImpl;
+  }
+
+  public List<City> getAllCities() throws ClassNotFoundException, SQLException {
+    try (Connection con = new MySQLConnector().getMySQLConnection()) {
+      List<Country> countries = new ArrayList<>();
+      Country conun = new Country();
+      Consumer<City> consu = data -> {
+        countries.add(data.getCountry());
+        System.out.println(conun);
+      };
+      cityManager.findAll(con).forEach(consu);
+
+      return cityManager.findAll(con);
     }
-
-    public List<City> getAllCities() throws ClassNotFoundException, SQLException {
-        try (Connection con = new MySQLConnector().getMySQLConnection()) {
-            List<Country> countries = new ArrayList<>();
-            Country conun = new Country();
-            Consumer<City> consu = data -> {
-                countries.add(data.getCountry());
-                System.out.println(conun);
-            };
-            cityManager.findAll(con).forEach(consu);
-
-            return cityManager.findAll(con);
-        }
-    }
+  }
 
 }
