@@ -10,17 +10,8 @@ import java.sql.Statement;
 
 public class Main {
 
-  public static void main(String[] args) throws SQLException, ClassNotFoundException {
-    Connector connector = new Connector();
-    ResultSetMetaData metaDatos = null;
-    try (Connection connection = connector.getMySQLConnection()) {
-      Statement stm = connection.createStatement();
-      int columnas = metaDatos.getColumnCount();
-      String [] nombreColumnas = new String[columnas];
+  public static void main(String[] args) {
 
-    } catch (SQLException e) {
-      e.printStackTrace();
-    }
 
   }
 }
