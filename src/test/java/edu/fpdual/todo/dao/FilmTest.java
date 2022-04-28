@@ -3,8 +3,6 @@ package edu.fpdual.todo.dao;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class FilmTest {
 
   @BeforeEach
@@ -13,5 +11,19 @@ class FilmTest {
 
   @AfterEach
   void tearDown() {
+  }
+
+  static class CategoryTest {
+
+    @BeforeEach
+    void setUp() {
+    }
+
+    @AfterEach
+    void tearDown() {
+    }
+
+    public static class ActorManagerImplTest {
+    }
   }
 }

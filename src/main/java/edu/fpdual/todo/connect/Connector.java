@@ -30,7 +30,7 @@ public class Connector {
    * @throws ClassNotFoundException
    * @throws SQLException
    */
-  public Connection getMySQLConnection() throws ClassNotFoundException, SQLException {
+  public Connection getConnection() throws ClassNotFoundException, SQLException {
     try {
       //Indica que driver se usará..
       Class.forName(prop.getProperty(Constants.DRIVER));
