@@ -1,4 +1,4 @@
-package edu.fpdual.fx.ejerciciojavafx;
+package edu.fpdual.fx;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

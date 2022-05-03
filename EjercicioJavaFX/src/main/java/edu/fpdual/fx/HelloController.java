@@ -1,4 +1,4 @@
-package edu.fpdual.fx.ejerciciojavafx;
+package edu.fpdual.fx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
