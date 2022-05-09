@@ -1,6 +1,6 @@
 package edu.fpdual.fx;
 
-import edu.fpdual.fx.controller.App;
+import edu.fpdual.fx.login.App;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
