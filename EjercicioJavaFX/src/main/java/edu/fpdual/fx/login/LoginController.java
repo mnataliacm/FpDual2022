@@ -31,13 +31,13 @@ public class LoginController {
     System.out.println(passwordField.getText());
 
     if (emailIdField.getText().isEmpty()) {
-      showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-          "Please enter your email id");
+      showAlert(Alert.AlertType.ERROR, owner, "Error!",
+          "Por favor, introduce el nombre de usuario");
       return;
     }
     if (passwordField.getText().isEmpty()) {
-      showAlert(Alert.AlertType.ERROR, owner, "Form Error!",
-          "Please enter a password");
+      showAlert(Alert.AlertType.ERROR, owner, "Error!",
+          "Por favor, introduce una contraseña");
       return;
     }
 
@@ -48,9 +48,9 @@ public class LoginController {
     boolean flag = jdbcDao.validate(emailId, password);
 
     if (!flag) {
-      infoBox("Please enter correct Email and Password", null, "Failed");
+      infoBox("Datos incorrectos, comprueba el nombre y la contraseña", null, "Error");
     } else {
-      infoBox("Login Successful!", null, "Failed");
+      infoBox("BIENVENID@!", null, "Sesión Iniciada");
     }
   }
 

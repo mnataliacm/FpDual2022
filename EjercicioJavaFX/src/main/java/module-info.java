@@ -3,13 +3,10 @@ module edu.fpdual.fx {
   requires javafx.fxml;
   requires java.sql;
   requires lombok;
+  requires javafx.graphics;
 
-
-  opens edu.fpdual.fx to javafx.fxml;
-  exports edu.fpdual.fx;
-  exports edu.fpdual.fx.controller;
-  opens edu.fpdual.fx.controller to javafx.fxml;
   exports edu.fpdual.fx.login;
   opens edu.fpdual.fx.login to javafx.fxml;
+
 
 }
